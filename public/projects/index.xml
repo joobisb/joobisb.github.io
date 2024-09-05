@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Joobi S B</title>
+    <link>https://joobisb.github.io/projects/</link>
+    <description>Recent content in Projects on Joobi S B</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 16 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://joobisb.github.io/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>VitaDB: Experimental Distributed Database</title>
+      <link>https://joobisb.github.io/projects/vitadb/</link>
+      <pubDate>Fri, 16 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>https://joobisb.github.io/projects/vitadb/</guid>
+      <description>&lt;h1 id=&#34;vitadb&#34;&gt;VitaDB&lt;/h1&gt;&#xA;&lt;p&gt;VitaDB is an experimental, distributed, fault-tolerant database I&amp;rsquo;m developing to explore core concepts of distributed systems. It&amp;rsquo;s designed as both a learning tool and a potential foundation for production use.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key-features&#34;&gt;Key Features&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Write-Ahead Log (WAL) for durability&lt;/li&gt;&#xA;&lt;li&gt;Fault tolerance mechanisms&lt;/li&gt;&#xA;&lt;li&gt;Simple key-value store interface&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;current-status&#34;&gt;Current Status&lt;/h2&gt;&#xA;&lt;p&gt;VitaDB is in early development, focusing on implementing fundamental distributed systems concepts. As the project progresses, I plan to add:&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

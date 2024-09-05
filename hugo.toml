@@ -1,0 +1,48 @@
+baseURL = 'https://joobisb.github.io/'
+languageCode = 'en-us'
+title = 'Joobi S B'
+theme = "typo"
+
+[params]
+homeIntroTitle = 'hello!'
+
+homeIntroContent = """
+ I am an experienced backend engineer with over 8 years of experience in building scalable and robust backend systems. Currently, I lead and mentor engineering team collaborating closely in a cross-functional environment.
+
+ I began my career at Huawei. Following this, I ventured into the startup ecosystem with [KeyValue Software Systems](https://keyvalue.systems). 
+ I have had the privilege of working across a multitude of domains, collaborating with numerous startups and scale-ups around the globe. 
+
+ These days, I mostly write in Go. Being a polyglot, I have previously worked with NodeJS (TypeScript), Scala, and Java. 
+ My expertise also includes working with Kafka, AWS, Azure, Kubernetes, Docker, Terraform and more.
+
+"""
+
+homeCollectionTitle = 'blog'
+homeCollection = 'blog'
+
+colorPalette = 'default'
+
+
+[[params.social]]
+name = "linkedin"
+url = "https://www.linkedin.com/in/joobisb/"
+
+[[params.social]]
+name = "x"
+url = "https://x.com/@joobi10"
+
+[[params.menu]]
+name = "home"
+url = "/"
+
+[[params.menu]]
+name = "blog"
+url = "/blog"
+
+[[params.menu]]
+name = "projects"
+url = "/projects"
+
+
+
+
