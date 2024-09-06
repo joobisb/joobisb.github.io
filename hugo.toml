@@ -22,6 +22,7 @@ homeCollection = 'blog'
 
 colorPalette = 'default'
 
+paginationSize = 25
 
 [[params.social]]
 name = "linkedin"

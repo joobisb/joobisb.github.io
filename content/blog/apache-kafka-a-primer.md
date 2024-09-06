@@ -164,3 +164,7 @@ Finally, there are certain patterns and various use cases related to event proce
     
 
 We will discuss more on this in further blogs.
+
+---
+*This blog was originally published on [https://blog.joobisb.com/apache-kafka-a-primer](https://blog.joobisb.com/apache-kafka-a-primer)*
+
