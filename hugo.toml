@@ -44,6 +44,10 @@ url = "/blog"
 name = "projects"
 url = "/projects"
 
+[[params.menu]]
+name = "open-source"
+url = "/open-source"
+
 
 
 

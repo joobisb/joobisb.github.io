@@ -5,6 +5,8 @@ date: 2024-08-16
 
 # VitaDB
 
+*Repo*: [joobisb/vitadb](https://github.com/joobisb/vitadb)
+
 VitaDB is an experimental, distributed, fault-tolerant database I'm developing to explore core concepts of distributed systems. It's designed as both a learning tool and a potential foundation for production use.
 
 ## Key Features

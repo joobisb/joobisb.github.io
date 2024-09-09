@@ -1,0 +1,15 @@
+.contribution-major {
+  background-color: #FFD700;
+  color: #000;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-weight: bold;
+}
+
+.contribution-minor {
+  background-color: #87CEEB;
+  color: #000;
+  padding: 2px 5px;
+  border-radius: 3px;
+  font-weight: bold;
+}

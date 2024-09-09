@@ -13,7 +13,7 @@
       <link>http://localhost:1313/projects/vitadb/</link>
       <pubDate>Fri, 16 Aug 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/projects/vitadb/</guid>
-      <description>&lt;h1 id=&#34;vitadb&#34;&gt;VitaDB&lt;/h1&gt;&#xA;&lt;p&gt;VitaDB is an experimental, distributed, fault-tolerant database I&amp;rsquo;m developing to explore core concepts of distributed systems. It&amp;rsquo;s designed as both a learning tool and a potential foundation for production use.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key-features&#34;&gt;Key Features&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Write-Ahead Log (WAL) for durability&lt;/li&gt;&#xA;&lt;li&gt;Fault tolerance mechanisms&lt;/li&gt;&#xA;&lt;li&gt;Simple key-value store interface&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;current-status&#34;&gt;Current Status&lt;/h2&gt;&#xA;&lt;p&gt;VitaDB is in early development, focusing on implementing fundamental distributed systems concepts. As the project progresses, I plan to add:&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;vitadb&#34;&gt;VitaDB&lt;/h1&gt;&#xA;&lt;p&gt;&lt;em&gt;Repo&lt;/em&gt;: &lt;a href=&#34;https://github.com/joobisb/vitadb&#34;&gt;joobisb/vitadb&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;VitaDB is an experimental, distributed, fault-tolerant database I&amp;rsquo;m developing to explore core concepts of distributed systems. It&amp;rsquo;s designed as both a learning tool and a potential foundation for production use.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key-features&#34;&gt;Key Features&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Write-Ahead Log (WAL) for durability&lt;/li&gt;&#xA;&lt;li&gt;Fault tolerance mechanisms&lt;/li&gt;&#xA;&lt;li&gt;Simple key-value store interface&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;current-status&#34;&gt;Current Status&lt;/h2&gt;&#xA;&lt;p&gt;VitaDB is in early development, focusing on implementing fundamental distributed systems concepts. As the project progresses, I plan to add:&lt;/p&gt;</description>
     </item>
     <item>
       <title>Troubleshooting Google Digital Asset Links for Seamless Android App Linking</title>
@@ -28,6 +28,13 @@
       <pubDate>Mon, 18 Sep 2023 00:23:24 +0530</pubDate>
       <guid>http://localhost:1313/blog/apache-kafka-a-primer/</guid>
       <description>&lt;p&gt;Nowadays it&amp;rsquo;s very common to build systems focused on events where events drive the flow of data and interactions, aka &lt;em&gt;Event-driven architecture&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Simply put, Apache Kafka is an event-streaming platform. It does the following,&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Single platform to publish and subscribe to events.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Process real-time streams of events.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;All events are stored.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&lt;figure class=&#34;&#34;&gt;&#xA;&#xA;    &lt;div&gt;&#xA;        &lt;img loading=&#34;lazy&#34; alt=&#34;&#34; src=&#34; /images/b17be644-da38-4e7a-b211-5f828dc7c59b.png&#34;&gt;&#xA;    &lt;/div&gt;&#xA;&#xA;    &#xA;&lt;/figure&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>contributions</title>
+      <link>http://localhost:1313/open-source/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/open-source/</guid>
+      <description>&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;&#xA;&lt;p&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&lt;figure class=&#34;&#34;&gt;&#xA;&#xA;    &lt;div&gt;&#xA;        &lt;img loading=&#34;lazy&#34; alt=&#34;GitHub Contribution Chart&#34; src=&#34; https://ghchart.rshah.org/joobisb&#34;&gt;&#xA;    &lt;/div&gt;&#xA;&#xA;    &#xA;&lt;/figure&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;apache-kafka&#34;&gt;apache kafka&lt;/h3&gt;&#xA;&lt;p&gt;the ever-popular distributed event store and stream-processing platform. trying to get my hands dirty here, let&amp;rsquo;s see how this goes.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>
