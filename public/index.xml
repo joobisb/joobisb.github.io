@@ -9,11 +9,18 @@
     <lastBuildDate>Fri, 16 Aug 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>VitaDB: Experimental Distributed Database</title>
+      <title>vitadb: experimental distributed database</title>
       <link>http://localhost:1313/projects/vitadb/</link>
       <pubDate>Fri, 16 Aug 2024 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/projects/vitadb/</guid>
       <description>&lt;h1 id=&#34;vitadb&#34;&gt;VitaDB&lt;/h1&gt;&#xA;&lt;p&gt;&lt;em&gt;Repo&lt;/em&gt;: &lt;a href=&#34;https://github.com/joobisb/vitadb&#34;&gt;joobisb/vitadb&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;VitaDB is an experimental, distributed, fault-tolerant database I&amp;rsquo;m developing to explore core concepts of distributed systems. It&amp;rsquo;s designed as both a learning tool and a potential foundation for production use.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key-features&#34;&gt;Key Features&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Write-Ahead Log (WAL) for durability&lt;/li&gt;&#xA;&lt;li&gt;Fault tolerance mechanisms&lt;/li&gt;&#xA;&lt;li&gt;Simple key-value store interface&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;current-status&#34;&gt;Current Status&lt;/h2&gt;&#xA;&lt;p&gt;VitaDB is in early development, focusing on implementing fundamental distributed systems concepts. As the project progresses, I plan to add:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>one billion row challenge</title>
+      <link>http://localhost:1313/projects/1brc/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/1brc/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Repo&lt;/em&gt;: &lt;a href=&#34;https://github.com/joobisb/1brc&#34;&gt;joobisb/vitadb&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Implemented a &lt;code&gt;go&lt;/code&gt; version of the &lt;a href=&#34;https://github.com/gunnarmorling/1brc&#34;&gt;one billion row challenge&lt;/a&gt;, a performance-oriented coding task, the project focuses on efficiently processing and analyzing a large dataset of one billion rows.&lt;/p&gt;</description>
     </item>
     <item>
       <title>Troubleshooting Google Digital Asset Links for Seamless Android App Linking</title>
@@ -34,7 +41,7 @@
       <link>http://localhost:1313/open-source/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/open-source/</guid>
-      <description>&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;&#xA;&lt;p&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&lt;figure class=&#34;&#34;&gt;&#xA;&#xA;    &lt;div&gt;&#xA;        &lt;img loading=&#34;lazy&#34; alt=&#34;GitHub Contribution Chart&#34; src=&#34; https://ghchart.rshah.org/joobisb&#34;&gt;&#xA;    &lt;/div&gt;&#xA;&#xA;    &#xA;&lt;/figure&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;apache-kafka&#34;&gt;apache kafka&lt;/h3&gt;&#xA;&lt;p&gt;the ever-popular distributed event store and stream-processing platform. trying to get my hands dirty here, let&amp;rsquo;s see how this goes.&lt;/p&gt;</description>
+      <description>&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;&#xA;&lt;p&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&lt;figure class=&#34;&#34;&gt;&#xA;&#xA;    &lt;div&gt;&#xA;        &lt;img loading=&#34;lazy&#34; alt=&#34;GitHub Contribution Chart&#34; src=&#34; https://ghchart.rshah.org/joobisb&#34;&gt;&#xA;    &lt;/div&gt;&#xA;&#xA;    &#xA;&lt;/figure&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;apache-kafka&#34;&gt;apache kafka&lt;/h3&gt;&#xA;&lt;p&gt;The ever-popular distributed event store and stream-processing platform. trying to get my hands dirty here, let&amp;rsquo;s see how this goes.&lt;/p&gt;</description>
     </item>
   </channel>
 </rss>

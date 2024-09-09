@@ -1,5 +1,5 @@
 ---
-title: "VitaDB: Experimental Distributed Database"
+title: "vitadb: experimental distributed database"
 date: 2024-08-16
 ---
 
