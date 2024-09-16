@@ -23,6 +23,13 @@
       <description>&lt;p&gt;&lt;em&gt;Repo&lt;/em&gt;: &lt;a href=&#34;https://github.com/joobisb/1brc&#34;&gt;joobisb/vitadb&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Implemented a &lt;code&gt;go&lt;/code&gt; version of the &lt;a href=&#34;https://github.com/gunnarmorling/1brc&#34;&gt;one billion row challenge&lt;/a&gt;, a performance-oriented coding task, the project focuses on efficiently processing and analyzing a large dataset of one billion rows.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Postgres MVCC and Isolation Levels</title>
+      <link>http://localhost:1313/blog/postgres-mvcc/</link>
+      <pubDate>Mon, 18 Dec 2023 00:23:24 +0530</pubDate>
+      <guid>http://localhost:1313/blog/postgres-mvcc/</guid>
+      <description>&lt;p&gt;Postgres uses a multiversion model for concurrency control unlike few other databases which uses locks. They call this &lt;strong&gt;MVCC(Multi Version Concurrency Control)&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;This means that when a transaction is running, Postgres creates a snapshot of the database at the start of the transaction. This protects the transactions from viewing inconsistent data.&lt;/p&gt;&#xA;&lt;p&gt;An important point to note is that MVCC read locks doesn&amp;rsquo;t conflict with the locks acquired for writing.&#xA;i.e. &lt;strong&gt;reading never blocks writing and writing never blocks reading.&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Troubleshooting Google Digital Asset Links for Seamless Android App Linking</title>
       <link>http://localhost:1313/blog/troubleshooting-app-links/</link>
       <pubDate>Sat, 11 Nov 2023 00:23:24 +0530</pubDate>

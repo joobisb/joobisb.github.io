@@ -15,7 +15,10 @@
     <lastmod>2024-01-15T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/blog/</loc>
-    <lastmod>2023-11-11T00:23:24+05:30</lastmod>
+    <lastmod>2023-12-18T00:23:24+05:30</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/postgres-mvcc/</loc>
+    <lastmod>2023-12-18T00:23:24+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/blog/troubleshooting-app-links/</loc>
     <lastmod>2023-11-11T00:23:24+05:30</lastmod>

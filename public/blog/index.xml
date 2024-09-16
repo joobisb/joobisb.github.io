@@ -16,6 +16,13 @@
       <description>&lt;p&gt;We all want to provide a seamless experience for the users of our app. Android app links are a great way to launch users straight into the app when they click on a link.&lt;/p&gt;&#xA;&lt;p&gt;There are different types of links that you can create in an Android app.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Deep Links&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Web Links&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;App Links&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve been working on a product for which we needed to use app links. Here I&amp;rsquo;ll discuss solving issues with setting up Android app links.&lt;/p&gt;</description>
     </item>
     <item>
+      <title>Postgres MVCC and Isolation Levels</title>
+      <link>http://localhost:1313/blog/postgres-mvcc/</link>
+      <pubDate>Wed, 18 Oct 2023 00:23:24 +0530</pubDate>
+      <guid>http://localhost:1313/blog/postgres-mvcc/</guid>
+      <description>&lt;p&gt;Postgres uses a multiversion model for concurrency control unlike few other databases which uses locks. They call this &lt;strong&gt;MVCC(Multi Version Concurrency Control)&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;This means that when a transaction is running, Postgres creates a snapshot of the database at the start of the transaction. This protects the transactions from viewing inconsistent data.&lt;/p&gt;&#xA;&lt;p&gt;An important point to note is that MVCC read locks doesn&amp;rsquo;t conflict with the locks acquired for writing.&#xA;i.e. &lt;strong&gt;reading never blocks writing and writing never blocks reading.&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
       <title>Apache Kafka: A Primer</title>
       <link>http://localhost:1313/blog/apache-kafka-a-primer/</link>
       <pubDate>Mon, 18 Sep 2023 00:23:24 +0530</pubDate>

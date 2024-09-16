@@ -32,6 +32,10 @@ url = "https://www.linkedin.com/in/joobisb/"
 name = "x"
 url = "https://x.com/@joobi10"
 
+[[params.social]]
+name = "github"
+url = "https://github.com/joobisb"
+
 [[params.menu]]
 name = "home"
 url = "/"
