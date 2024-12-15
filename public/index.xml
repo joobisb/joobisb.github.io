@@ -6,8 +6,15 @@
     <description>Recent content in Home on Joobi S B</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 26 Sep 2024 00:23:24 +0530</lastBuildDate>
+    <lastBuildDate>Sun, 01 Dec 2024 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>advent of code 2024 🎄</title>
+      <link>http://localhost:1313/projects/advent-of-code/</link>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/advent-of-code/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Check out my solutions to the &lt;a href=&#34;https://adventofcode.com/2024&#34;&gt;advent of code 2024&lt;/a&gt; in here &lt;a href=&#34;https://github.com/joobisb/advent-of-code-2024&#34;&gt;joobisb/advent-of-code-2024&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
     <item>
       <title>Using Ephemeral OS disks with AKS</title>
       <link>http://localhost:1313/blog/aks-ephemeral-disk/</link>
@@ -56,6 +63,13 @@
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       <guid>http://localhost:1313/open-source/</guid>
       <description>&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;&#xA;&lt;p&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&lt;figure class=&#34;&#34;&gt;&#xA;&#xA;    &lt;div&gt;&#xA;        &lt;img loading=&#34;lazy&#34; alt=&#34;GitHub Contribution Chart&#34; src=&#34; https://ghchart.rshah.org/joobisb&#34;&gt;&#xA;    &lt;/div&gt;&#xA;&#xA;    &#xA;&lt;/figure&gt;&lt;/p&gt;&#xA;&lt;h3 id=&#34;coder&#34;&gt;coder&lt;/h3&gt;&#xA;&lt;p&gt;&lt;em&gt;(Aug 2024 - Present)&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;Coder is a remote development environment provsioner via Terraform written in Golang.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;See all my contributions: &lt;a href=&#34;https://github.com/coder/coder/commits?author=joobisb&#34;&gt;#here&lt;/a&gt;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h3 id=&#34;apache-kafka&#34;&gt;apache kafka&lt;/h3&gt;&#xA;&lt;p&gt;&lt;em&gt;(June 2023 - Oct 2023)&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>talks</title>
+      <link>http://localhost:1313/talks/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/talks/</guid>
+      <description>&lt;h1 id=&#34;heading&#34;&gt;&lt;/h1&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;&lt;strong&gt;Mastering Concurrency in Go: From Patterns to Production&lt;/strong&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;&lt;a href=&#34;https://gopherconindia.org/&#34;&gt;GopherCon India 2024&lt;/a&gt;&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;📍 Jaipur, India 🇮🇳&lt;/em&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Slides&lt;/em&gt;: &lt;a href=&#34;https://www.slideshare.net/slideshow/mastering-concurrency-in-go-patterns-to-production/273800728&#34;&gt;&lt;em&gt;slideshow/mastering-concurrency-in-go-patterns-to-production&lt;/em&gt;&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;&lt;em&gt;Watch&lt;/em&gt;: (Coming Soon)&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;hr&gt;&#xA;&lt;blockquote&gt;&#xA;&lt;p&gt;&lt;em&gt;Interested in having me speak at your event? Feel free to reach out: &lt;a href=&#34;mailto:joobisb@gmail.com&#34;&gt;joobisb@gmail.com&lt;/a&gt;!&lt;/em&gt;&lt;/p&gt;&#xA;&lt;/blockquote&gt;</description>
     </item>
   </channel>
 </rss>

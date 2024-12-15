@@ -52,6 +52,6 @@ url = "/projects"
 name = "open-source"
 url = "/open-source"
 
-
-
-
+[[params.menu]]
+name = "talks"
+url = "/talks"

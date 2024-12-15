@@ -2,17 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>http://localhost:1313/blog/</loc>
-    <lastmod>2024-09-26T00:23:24+05:30</lastmod>
+    <loc>http://localhost:1313/projects/advent-of-code/</loc>
+    <lastmod>2024-12-01T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/</loc>
+    <lastmod>2024-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/projects/</loc>
+    <lastmod>2024-12-01T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>http://localhost:1313/blog/</loc>
     <lastmod>2024-09-26T00:23:24+05:30</lastmod>
   </url><url>
     <loc>http://localhost:1313/blog/aks-ephemeral-disk/</loc>
     <lastmod>2024-09-26T00:23:24+05:30</lastmod>
-  </url><url>
-    <loc>http://localhost:1313/projects/</loc>
-    <lastmod>2024-08-16T00:00:00+00:00</lastmod>
   </url><url>
     <loc>http://localhost:1313/projects/vitadb/</loc>
     <lastmod>2024-08-16T00:00:00+00:00</lastmod>
@@ -36,5 +39,9 @@
     <loc>http://localhost:1313/open-source/</loc>
   </url><url>
     <loc>http://localhost:1313/tags/</loc>
+  </url><url>
+    <loc>http://localhost:1313/talks/</loc>
+  </url><url>
+    <loc>http://localhost:1313/talks/</loc>
   </url>
 </urlset>

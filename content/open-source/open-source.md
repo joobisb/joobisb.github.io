@@ -21,7 +21,7 @@ Coder is a remote development environment provsioner via Terraform written in Go
 
 *(June 2023 - Oct 2023)*
 
-The ever-popular distributed event store and stream-processing platform. trying to get my hands dirty here, let's see how this goes. 
+The ever-popular distributed messaging and stream-processing platform. trying to get my hands dirty here, let's see how this goes. 
 
   - [*feat*] Make Timer.java implement AutoCloseable: [#merged](https://github.com/apache/kafka/pull/13872)
   - [*feat*] remove mockstreamsmetrics since it is not a mock: [#open ](https://github.com/apache/kafka/pull/13931)
