@@ -11,11 +11,11 @@ toc: false
 
     *[GopherCon India 2024](https://gopherconindia.org/)*
      
-    *📍 Jaipur, India 🇮🇳*
+    *📍 Jaipur 🇮🇳*
 
     *Slides*: [*slideshow/mastering-concurrency-in-go-patterns-to-production*](https://www.slideshare.net/slideshow/mastering-concurrency-in-go-patterns-to-production/273800728)
 
-    *Watch*: (Coming Soon)
+    {{< youtube kf_o7wSeFyw >}}
 
 ---
 
