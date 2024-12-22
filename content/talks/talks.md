@@ -18,5 +18,3 @@ toc: false
     {{< youtube kf_o7wSeFyw >}}
 
 ---
-
-> *Interested in having me speak at your event? Feel free to reach out: joobisb@gmail.com!*
