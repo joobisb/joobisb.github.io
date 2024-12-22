@@ -13,9 +13,11 @@ toc: false
 
 *(Aug 2024 - Present)*
 
-Coder is a remote development environment provsioner via Terraform written in Golang. 
+Coder is a remote development environment provisioner via Terraform written in Golang.
 
-  - See all my contributions: [#here](https://github.com/coder/coder/commits?author=joobisb)
+*Contributions:*
+  - *Coder Core* → [coder/coder](https://github.com/coder/coder/commits?author=joobisb)
+  - *Serpent CLI* → [coder/serpent](https://github.com/coder/serpent/commits?author=joobisb)
 
 ### apache kafka
 
