@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blog Copies on Joobi S B</title>
+    <link>http://localhost:1313/blog-copy/</link>
+    <description>Recent content in Blog Copies on Joobi S B</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 26 Sep 2024 00:23:24 +0530</lastBuildDate>
+    <atom:link href="http://localhost:1313/blog-copy/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using Ephemeral OS disks with AKS</title>
+      <link>http://localhost:1313/blog-copy/aks-ephemeral-disk/</link>
+      <pubDate>Thu, 26 Sep 2024 00:23:24 +0530</pubDate>
+      <guid>http://localhost:1313/blog-copy/aks-ephemeral-disk/</guid>
+      <description>&lt;h3 id=&#34;background&#34;&gt;Background&lt;/h3&gt;&#xA;&lt;p&gt;We have our staging and production environments hosted on &lt;em&gt;Azure Kubernetes Service (AKS)&lt;/em&gt;. If you are not familiar with AKS, it&amp;rsquo;s the managed K8s service provided by Azure.&lt;/p&gt;&#xA;&lt;p&gt;By default, AKS uses a managed remote &lt;em&gt;Azure Storage&lt;/em&gt; for the OS disks of the nodes, whereas if you use &lt;em&gt;ephemeral OS disks&lt;/em&gt;, then they are created on the local virtual machine (VM) storage.&lt;/p&gt;&#xA;&lt;h4 id=&#34;why-use-ephemeral-os-disks&#34;&gt;Why use ephemeral OS disks?&lt;/h4&gt;&#xA;&lt;p&gt;With ephemeral OS disks, we see lower read/write latency on the disks of AKS nodes as the disks are locally attached to the VM.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

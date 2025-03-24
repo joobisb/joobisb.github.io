@@ -1,0 +1,425 @@
+<!DOCTYPE html>
+<html lang="en-us"
+  dir="ltr">
+
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+
+<link rel="icon" type="image/ico" href="http://localhost:1313//favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313//favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313//favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="http://localhost:1313//android-chrome-192x192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:1313//apple-touch-icon.png">
+
+<meta name="description" content=""/>
+
+<title>
+    
+    Postgres MVCC and Isolation Levels | Joobi S B
+    
+</title>
+
+<link rel="canonical" href="http://localhost:1313/blog/postgres-mvcc/"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/assets/combined.min.8fe593bbeba89eaf355dddfc8a11f17177c8f384a3f14a1de029cf79e93527fc.css" media="all">
+
+
+
+
+
+  </head>
+
+  
+
+  
+
+  <body class="auto">
+
+    <div class="content">
+      <header>
+        
+
+<div class="header">
+
+    
+
+    <h1 class="header-title">Joobi S B</h1>
+
+    <div class="flex">
+        
+
+        
+        
+      
+        <p class="small ">
+            <a href="/" >
+                /home
+            </a>
+        </p>
+        
+      
+        <p class="small ">
+            <a href="/blog" >
+                /blog
+            </a>
+        </p>
+        
+      
+        <p class="small ">
+            <a href="/projects" >
+                /projects
+            </a>
+        </p>
+        
+      
+        <p class="small ">
+            <a href="/open-source" >
+                /open-source
+            </a>
+        </p>
+        
+      
+        <p class="small ">
+            <a href="/talks" >
+                /talks
+            </a>
+        </p>
+        
+        
+    </div>
+
+    
+
+</div>
+
+      </header>
+
+      <main class="main">
+        
+
+
+
+
+
+
+
+<div >
+
+  <div class="single-intro-container">
+
+    
+
+    <h1 class="single-title">Postgres MVCC and Isolation Levels</h1>
+    
+
+    
+
+    <p class="single-readtime">
+      
+      
+      
+      <time datetime="2023-10-18T00:23:24&#43;05:30">October 18, 2023</time>
+      
+
+      
+      &nbsp; · &nbsp;
+      3 min read
+      
+    </p>
+
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  <div class="single-content">
+    <p>Postgres uses a multiversion model for concurrency control unlike few other databases which uses locks. They call this <strong>MVCC(Multi Version Concurrency Control)</strong>.</p>
+<p>This means that when a transaction is running, Postgres creates a snapshot of the database at the start of the transaction. This protects the transactions from viewing inconsistent data.</p>
+<p>An important point to note is that MVCC read locks doesn&rsquo;t conflict with the locks acquired for writing.
+i.e. <strong>reading never blocks writing and writing never blocks reading.</strong></p>
+<h3 id="why-are-we-using-mvcc-or-locks-for-that-matter">Why are we using MVCC or locks for that matter?</h3>
+<p>It is to prevent the problems that arise due to concurrent execution of transactions.</p>
+<p>So what are those problems?</p>
+<ol>
+<li><strong>Dirty reads</strong></li>
+</ol>
+<p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="" src=" /images/postgres-mvcc/dirty-reads.png">
+    </div>
+
+    
+</figure></p>
+<p>It&rsquo;s pretty self-explanatory from the above diagram. A dirty read is when a transaction reads data that has not been committed by another transaction.</p>
+<ol start="2">
+<li><strong>Non-repeatable reads</strong></li>
+</ol>
+<p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="" src=" /images/postgres-mvcc/non-rr.png">
+    </div>
+
+    
+</figure></p>
+<p>Here the difference is that the transaction is trying to read the same data again but it is not the same as the first read, cause T2 committed after T1&rsquo;s first read. This creates an inconsistency within T1. This is not a dirty read cause its reading the data that has been committed.</p>
+<ol start="3">
+<li><strong>Phantom reads</strong></li>
+</ol>
+<p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="" src=" /images/postgres-mvcc/phantom-reads.png">
+    </div>
+
+    
+</figure></p>
+<p>This is a phantom read cause the collection of rows returned by the second query in T1 is different from the first.</p>
+<h3 id="so-how-do-we-address-these-phenomenas">So how do we address these phenomenas?</h3>
+<p><em>ANSI/ISO SQL</em> specifies four levels of transaction isolation to address the above problems.</p>
+<p><strong>Read Uncommitted</strong></p>
+<p>This is the <em>lowest level</em> of isolation. It allows <em>dirty reads</em>, <em>non-repeatable reads</em>, and <em>phantom reads</em>.</p>
+<p>This is used where you need the absolute highest level of concurrency and can tolerate incosistent data.</p>
+<p><strong>Read Committed</strong></p>
+<p><em>Read Committed</em> is the default isolation level in Postgres.</p>
+<p>It never sees the uncommitted data or changes committed during query executions. However, it does not prevent <em>non-repeatable reads</em> or <em>phantom reads</em>.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="" src=" /images/postgres-mvcc/read-committed.png">
+    </div>
+
+    
+</figure></p>
+<p><em>Note:</em></p>
+<blockquote>
+<p><em>SELECT</em> does see the effects of previous updates executed within the same transaction, even though they are not yet committed.</p>
+</blockquote>
+<blockquote>
+<p>If a transaction executing an UPDATE / DELETE / SELECT FOR UPDATE is already been updated by another concurrent transaction, the second transaction will wait for other to commit or roll back.</p>
+</blockquote>
+<p><strong>Repeatable Read</strong></p>
+<p>This level addresses the problem of non-repeatable reads. However, it does not prevent <em>phantom reads</em>.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="" src=" /images/postgres-mvcc/repeatable-read.png">
+    </div>
+
+    
+</figure></p>
+<p><strong>Serializable</strong></p>
+<p>This is the highest level of isolation. This emulates a serial transaction, as if they are been executed one after another, serially, rather than concurrently.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="" src=" /images/postgres-mvcc/serializable.png">
+    </div>
+
+    
+</figure></p>
+<p>Here when T1 it tries to update the row, it fails because of the conflict with the other transaction&rsquo;s update. Hence, the transaction needs to be retried.</p>
+<p><em>Note:</em></p>
+<blockquote>
+<p><em>SELECT</em> does see the effects of previous updates executed within the same transaction, even though they are not yet committed.</p>
+</blockquote>
+<blockquote>
+<p>If a transaction executing an UPDATE / DELETE / SELECT FOR UPDATE is already been updated by another concurrent transaction, the second transaction will wait for other to commit or roll back. In case of rollback, the second transaction can proceed to change the row, but in case of commit, the serializable transaction will be rolled back with <code>ERROR: Can't serialize access due to concurrent update.</code></p>
+</blockquote>
+
+    
+  </div>
+
+  
+
+  
+  
+
+<div class="single-pagination">
+    <hr />
+
+    <div class="flex">
+
+        <div class="single-pagination-prev">
+            
+            <div class="single-pagination-container-prev">
+                <div class="single-pagination-text">←</div>
+                <div class="single-pagination-text">
+                    <a href="/blog/apache-kafka-a-primer/">
+                        Apache Kafka: A Primer
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="single-pagination-next">
+            
+            <div class="single-pagination-container-next">
+                <div class="single-pagination-text">
+                    <a href="/blog/troubleshooting-app-links/">
+                        Troubleshooting Google Digital Asset Links for Seamless Android App Linking
+                    </a>
+                </div>
+                <div class="single-pagination-text">→</div>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <hr />
+</div>
+
+
+
+  
+
+  
+
+  
+  <div class="back-to-top">
+    <a href="#top">
+      back to top
+    </a>
+  </div>
+  
+
+</div>
+
+
+      </main>
+    </div>
+
+    <footer>
+      <p>
+    <a>Joobi</a>
+    ©
+    <a>2024</a>
+</p>
+
+
+    </footer>
+
+  </body>
+
+  <script>
+
+  function isAuto() {
+    return document.body.classList.contains("auto");
+  }
+
+  function setTheme() {
+    if (!isAuto()) {
+      return
+    }
+
+    document.body.classList.remove("auto");
+    let cls = "light";
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      cls = "dark";
+    }
+
+    document.body.classList.add(cls);
+  }
+
+  function invertBody() {
+    document.body.classList.toggle("dark");
+    document.body.classList.toggle("light");
+  }
+
+  if (isAuto()) {
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(invertBody);
+  }
+
+  setTheme();
+
+</script>
+
+</html>

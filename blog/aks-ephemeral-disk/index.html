@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en-us"
+  dir="ltr">
+
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+
+<link rel="icon" type="image/ico" href="http://localhost:1313//favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313//favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313//favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="http://localhost:1313//android-chrome-192x192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:1313//apple-touch-icon.png">
+
+<meta name="description" content=""/>
+
+<title>
+    
+    Using Ephemeral OS disks with AKS | Joobi S B
+    
+</title>
+
+<link rel="canonical" href="http://localhost:1313/blog/aks-ephemeral-disk/"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/assets/combined.min.8fe593bbeba89eaf355dddfc8a11f17177c8f384a3f14a1de029cf79e93527fc.css" media="all">
+
+
+
+
+
+  </head>
+
+  
+
+  
+
+  <body class="auto">
+
+    <div class="content">
+      <header>
+        
+
+<div class="header">
+
+    
+
+    <h1 class="header-title">Joobi S B</h1>
+
+    <div class="flex">
+        
+
+        
+        
+      
+        <p class="small ">
+            <a href="/" >
+                /home
+            </a>
+        </p>
+        
+      
+        <p class="small ">
+            <a href="/blog" >
+                /blog
+            </a>
+        </p>
+        
+      
+        <p class="small ">
+            <a href="/projects" >
+                /projects
+            </a>
+        </p>
+        
+      
+        <p class="small ">
+            <a href="/open-source" >
+                /open-source
+            </a>
+        </p>
+        
+      
+        <p class="small ">
+            <a href="/talks" >
+                /talks
+            </a>
+        </p>
+        
+        
+    </div>
+
+    
+
+</div>
+
+      </header>
+
+      <main class="main">
+        
+
+
+
+
+
+
+
+<div >
+
+  <div class="single-intro-container">
+
+    
+
+    <h1 class="single-title">Using Ephemeral OS disks with AKS</h1>
+    
+
+    
+
+    <p class="single-readtime">
+      
+      
+      
+      <time datetime="2024-09-26T00:23:24&#43;05:30">September 26, 2024</time>
+      
+
+      
+      &nbsp; · &nbsp;
+      4 min read
+      
+    </p>
+
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  <div class="single-content">
+    <h3 id="background">Background</h3>
+<p>We have our staging and production environments hosted on <em>Azure Kubernetes Service (AKS)</em>. If you are not familiar with AKS, it&rsquo;s the managed K8s service provided by Azure.</p>
+<p>By default, AKS uses a managed remote <em>Azure Storage</em> for the OS disks of the nodes, whereas if you use <em>ephemeral OS disks</em>, then they are created on the local virtual machine (VM) storage.</p>
+<h4 id="why-use-ephemeral-os-disks">Why use ephemeral OS disks?</h4>
+<p>With ephemeral OS disks, we see lower read/write latency on the disks of AKS nodes as the disks are locally attached to the VM.</p>
+<p>You will also get faster cluster operations like scaling or upgrading clusters, cause now the re-imaging and boot times are faster due to the disks being locally attached to the VM.</p>
+<p>Also we do not incur any additional storage costs for OS disks with ephemeral OS disks.</p>
+<p>These are ideal for stateless applications and workloads, but not suitable for stateful applications as the disks are ephemeral.</p>
+<h4 id="what-to-consider-while-using-ephemeral-os-disks">What to consider while using ephemeral OS disks?</h4>
+<p>We can store <em>ephemeral OS disks</em> on VM&rsquo;s <em>OS cache disk</em> or <em>temporary storage SSD</em>. So the <strong>size of the ephemeral OS disk should be less than or equal to the size of the OS cache disk or temporary storage SSD of the VM node size</strong>.</p>
+<p>Since VM&rsquo;s OS cache disk and temporary storage SSD are determined by the VM node size, we need to select the right VM node size for our nodes.</p>
+<p><strong>For example</strong>:</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="" src=" /images/aks-ephemeral/nodepool.png">
+    </div>
+
+    
+</figure></p>
+<p>Let&rsquo;s say our cluster node size is <code>Standard_D2s_v3</code> for the node pool (nodes of the same configuration are grouped together into node pools. These node pools contain the underlying VMs that runs our applications) as shown above.</p>
+<p>Now let&rsquo;s check the size of the OS cache disk and temporary storage SSD for this node size.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="" src=" /images/aks-ephemeral/d2sv3.png">
+    </div>
+
+    
+</figure></p>
+<p>So here, as you can see the temp size is <em>16GB</em> and OS cache size is <em>50GB</em>. So our max ephemeral disk size should be less than or equal to <em>50GB</em>.</p>
+<p><strong>The max ephemeral disk size is limited by the node size that we choose.</strong></p>
+<p><em>Note: Check your node size&rsquo;s OS cache disk and temporary storage SSD size <a href="https://techcommunity.microsoft.com/t5/fasttrack-for-azure/everything-you-want-to-know-about-ephemeral-os-disks-and-azure/ba-p/3565605#M205">here</a>.</em></p>
+<h3 id="migration">Migration</h3>
+<p>We already have a node pool with <code>Managed Disks</code> and we want to migrate to <code>Ephemeral OS Disk</code>.</p>
+<p>We won&rsquo;t be able to change the OS <em>disk type</em> of the existing node pool, so we need to create a new node pool with OS <em>disk type</em> as <code>Ephemeral</code> and migrate the existing workloads to this new node pool.</p>
+<p>Let&rsquo;s say the existing node pool is <code>nodepool-1</code> and we are creating a new node pool with <code>Ephemeral OS Disk</code> as <code>nodepool-new</code>.</p>
+<p><strong>The entire migration needs to be done without any downtime.</strong></p>
+<p>We are using Terraform to manage our AKS clusters.</p>
+<ul>
+<li>First we need to create the new node pool <code>nodepool-new</code> with <em>OS disk type</em> as <code>Ephemeral OS Disk</code>.</li>
+</ul>
+<pre tabindex="0"><code>resource &#34;azurerm_kubernetes_cluster_node_pool&#34; &#34;d2s_v3_node_pool_new&#34; {
+  name                  = &#34;nodepool-new&#34;
+  kubernetes_cluster_id = azurerm_kubernetes_cluster.default.id
+
+  enable_auto_scaling = true
+
+  os_disk_type = &#34;Ephemeral&#34;
+
+  min_count = var.d2s_v3_node_count
+
+  max_count = var.d2s_v3_node_max_count
+
+  vm_size = &#34;Standard_D2s_v3&#34;
+
+  os_sku = &#34;AzureLinux&#34;
+
+  os_disk_size_gb = 50
+
+  vnet_subnet_id = azurerm_subnet.default.id
+}
+</code></pre><p>As seen above, to enable <em>ephemeral OS disk</em>, we set <code>os_disk_type</code> to <code>Ephemeral</code> and <code>os_disk_size_gb</code> is set to <em>50GB</em> which is equal to the size of the OS cache disk of <em>Standard_D2s_v3</em>.</p>
+<p><em>Note: <code>os_disk_type</code> defaults to <code>Managed</code> if not specified.</em></p>
+<ul>
+<li>Next step is to safely migrate the existing workloads in <code>nodepool-1</code> to <code>nodepool-new</code>.
+<ul>
+<li>
+<p>For this, we will first need to cordon the nodes in <code>nodepool-1</code> so that no new pods are scheduled on them.</p>
+</li>
+<li>
+<p>Then we drain the nodes in <code>nodepool-1</code> so that the existing pods are rescheduled on to the nodes in <code>nodepool-new</code>.</p>
+</li>
+<li>
+<p>This was done manually through a script using <code>kubectl</code>.</p>
+<ul>
+<li>Get all the nodes in <code>nodepool-1</code>.</li>
+</ul>
+<pre tabindex="0"><code>kubectl get nodes -n &lt;namespace&gt;
+</code></pre><ul>
+<li>Cordon the existing nodes from <code>nodepool-1</code>.</li>
+</ul>
+<pre tabindex="0"><code>kubectl cordon &lt;node1&gt; &lt;node2&gt; ...
+</code></pre><ul>
+<li>Drain the nodes from <code>nodepool-1</code>.</li>
+</ul>
+<p>To ensure the successfull draining of nodes, we need to ensure that <em>PodDisruptionBudgets</em> allow for atleast one replica to be moved.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="" src=" /images/aks-ephemeral/pdb.png">
+    </div>
+
+    
+</figure></p>
+<p>Run <code>kubectl get pdb -A</code> and check <code>ALLOWED DISRUPTIONS</code> is atleast 1 or higher as shown above. After verifying this, we can proceed with the draining of nodes.</p>
+<pre tabindex="0"><code>kubectl drain &lt;node1&gt; &lt;node2&gt; ... --ignore-daemonsets --delete-emptydir-data
+</code></pre><p>Note: <em>Using &ndash;delete-emptydir-data is required to evict the AKS-created coredns and metrics-server pods. If this flag isn&rsquo;t used, an error is expected.</em></p>
+</li>
+<li>
+<p>Run <code>k get pods -o wide</code> and check <code>NODE</code> column if all the pods are rescheduled on to the new nodes in <code>nodepool-new</code>.</p>
+</li>
+</ul>
+</li>
+</ul>
+<p>This was a short yet precise guide on how to efficiently migrate to ephemeral OS disks in AKS. I hope you found it helpful.</p>
+
+    
+  </div>
+
+  
+
+  
+  
+
+<div class="single-pagination">
+    <hr />
+
+    <div class="flex">
+
+        <div class="single-pagination-prev">
+            
+            <div class="single-pagination-container-prev">
+                <div class="single-pagination-text">←</div>
+                <div class="single-pagination-text">
+                    <a href="/blog/troubleshooting-app-links/">
+                        Troubleshooting Google Digital Asset Links for Seamless Android App Linking
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="single-pagination-next">
+            
+        </div>
+
+    </div>
+
+    <hr />
+</div>
+
+
+
+  
+
+  
+
+  
+  <div class="back-to-top">
+    <a href="#top">
+      back to top
+    </a>
+  </div>
+  
+
+</div>
+
+
+      </main>
+    </div>
+
+    <footer>
+      <p>
+    <a>Joobi</a>
+    ©
+    <a>2024</a>
+</p>
+
+
+    </footer>
+
+  </body>
+
+  <script>
+
+  function isAuto() {
+    return document.body.classList.contains("auto");
+  }
+
+  function setTheme() {
+    if (!isAuto()) {
+      return
+    }
+
+    document.body.classList.remove("auto");
+    let cls = "light";
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      cls = "dark";
+    }
+
+    document.body.classList.add(cls);
+  }
+
+  function invertBody() {
+    document.body.classList.toggle("dark");
+    document.body.classList.toggle("light");
+  }
+
+  if (isAuto()) {
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(invertBody);
+  }
+
+  setTheme();
+
+</script>
+
+</html>

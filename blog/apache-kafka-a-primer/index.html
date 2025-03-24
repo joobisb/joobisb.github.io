@@ -1,0 +1,629 @@
+<!DOCTYPE html>
+<html lang="en-us"
+  dir="ltr">
+
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+
+<link rel="icon" type="image/ico" href="http://localhost:1313//favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313//favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313//favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="http://localhost:1313//android-chrome-192x192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:1313//apple-touch-icon.png">
+
+<meta name="description" content=""/>
+
+<title>
+    
+    Apache Kafka: A Primer | Joobi S B
+    
+</title>
+
+<link rel="canonical" href="http://localhost:1313/blog/apache-kafka-a-primer/"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/assets/combined.min.8fe593bbeba89eaf355dddfc8a11f17177c8f384a3f14a1de029cf79e93527fc.css" media="all">
+
+
+
+
+
+  </head>
+
+  
+
+  
+
+  <body class="auto">
+
+    <div class="content">
+      <header>
+        
+
+<div class="header">
+
+    
+
+    <h1 class="header-title">Joobi S B</h1>
+
+    <div class="flex">
+        
+
+        
+        
+      
+        <p class="small ">
+            <a href="/" >
+                /home
+            </a>
+        </p>
+        
+      
+        <p class="small ">
+            <a href="/blog" >
+                /blog
+            </a>
+        </p>
+        
+      
+        <p class="small ">
+            <a href="/projects" >
+                /projects
+            </a>
+        </p>
+        
+      
+        <p class="small ">
+            <a href="/open-source" >
+                /open-source
+            </a>
+        </p>
+        
+      
+        <p class="small ">
+            <a href="/talks" >
+                /talks
+            </a>
+        </p>
+        
+        
+    </div>
+
+    
+
+</div>
+
+      </header>
+
+      <main class="main">
+        
+
+
+
+
+
+
+
+<div >
+
+  <div class="single-intro-container">
+
+    
+
+    <h1 class="single-title">Apache Kafka: A Primer</h1>
+    
+
+    
+
+    <p class="single-readtime">
+      
+      
+      
+      <time datetime="2023-09-18T00:23:24&#43;05:30">September 18, 2023</time>
+      
+
+      
+      &nbsp; · &nbsp;
+      6 min read
+      
+    </p>
+
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  <div class="single-content">
+    <p>Nowadays it&rsquo;s very common to build systems focused on events where events drive the flow of data and interactions, aka <em>Event-driven architecture</em>.</p>
+<p>Simply put, Apache Kafka is an event-streaming platform. It does the following,</p>
+<ul>
+<li>
+<p>Single platform to publish and subscribe to events.</p>
+</li>
+<li>
+<p>Process real-time streams of events.</p>
+</li>
+<li>
+<p>All events are stored.</p>
+</li>
+</ul>
+<p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="" src=" /images/b17be644-da38-4e7a-b211-5f828dc7c59b.png">
+    </div>
+
+    
+</figure></p>
+<p>On a high level, Kafka has <strong>Producers</strong> and <strong>Consumers</strong> as shown above.</p>
+<ul>
+<li>
+<p>Producers - They push events (obviously).</p>
+</li>
+<li>
+<p>Consumers - They consume. The arrow towards Kafka from the consumer indicates it <strong>polls</strong> the messages from Kafka.</p>
+</li>
+</ul>
+<p>Now let&rsquo;s breakdown Kafka,</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="" src=" /images/41b52fb9-4173-46b6-a7f7-ec895ca1a3bf.png">
+    </div>
+
+    
+</figure></p>
+<p>A Kafka cluster consists of multiple brokers, each broker is running a Kafka process and stores the events in the disk. A broker can be easily referred to with any legacy terms such as machines/servers or can be containers or VMs etc.</p>
+<p>We can deploy and manage a Kafka cluster or use any managed services such as <a href="https://www.confluent.io/">Confluent Cloud</a>, <a href="https://aws.amazon.com/msk/">AWS MSK</a> etc.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="" src=" /images/cc724065-b879-4b16-9fe6-e7ef94ebafd5.png">
+    </div>
+
+    
+</figure></p>
+<p>You might be wondering what&rsquo;s the new component shown at the bottom. It&rsquo;s Zookeeper.</p>
+<p>Kafka users Zookeeper for,</p>
+<ul>
+<li>
+<p>Cluster management</p>
+</li>
+<li>
+<p>Metadata handling.</p>
+</li>
+<li>
+<p>Failure detection/recovery, leader election.</p>
+</li>
+<li>
+<p>ACLs etc.</p>
+</li>
+</ul>
+<p>A new protocol based on an event-based variant of the <a href="https://raft.github.io/">Raft</a> consensus protocol was introduced in <a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-500%3A+Replace+ZooKeeper+with+a+Self-Managed+Metadata+Quorum">KIP-500</a> to remove Apache Kafka’s dependency on ZooKeeper for metadata management called Apache Kafka Raft (<strong>KRaft</strong>).</p>
+<p>With the release of Apache Kafka 3.5, Zookeeper is now marked <strong>deprecated</strong>. It is expected to be removed in version 4.0.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="" src=" /images/3ca392ad-cc75-477c-884f-397f33aef4a2.png">
+    </div>
+
+    
+</figure></p>
+<p>A <strong>Topic</strong> is a collection of related events. Data is propagated from producers to consumers through these topics. There can be multiple producers writing to a topic or a single producer writing to multiple topics. Similar is the case with the consumers as well.</p>
+<p>Currently, Kafka can have conceptually as many as hundreds of thousands of topics in a Kafka cluster. With <strong>KRaft</strong> mode it is said to be in millions [<a href="https://developer.confluent.io/faq/apache-kafka/topics-in-kafka/#:~:text=While%20there%20is%20no%20set,number%20of%20partitions%20in%20each.">Source</a>].</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="" src=" /images/5a7ca072-ec1c-4640-82d1-4bf169904c8c.png">
+    </div>
+
+    
+</figure></p>
+<p>A topic which is actually only a logical grouping consists of <strong>partitions</strong> and each of these partitions can live on a separate broker in the cluster. So storing, writing and processing of messages can be split among the brokers in the cluster as shown below.</p>
+<p>Here there are 3 topics, A, B and C each having 2 partitions.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="" src=" /images/b08a7a69-378e-41f0-9f94-77b254164154.png">
+    </div>
+
+    
+</figure></p>
+<p>Each partition has a configurable number of replicas (typically 3) for fault tolerance. So the distribution can change as follows.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="" src=" /images/38b1da06-d01f-420b-9607-9ff1e91d4863.png">
+    </div>
+
+    
+</figure></p>
+<p>Here, I&rsquo;ve taken the case for topic A and its two partitions 0 and 1 which are replicated across 3 brokers. Similarly, for topics B and C it can have their own replicas as well across the 3 brokers. One of them will be the leader(L) and the rest are the followers(R1, R2).</p>
+<p>Producers write events to the leader partition, similarly, consumers usually consume from the leader except for some special cases(<a href="https://cwiki.apache.org/confluence/display/KAFKA/KIP-392%3A+Allow+consumers+to+fetch+from+closest+replica">KIP-392</a>).</p>
+<p>As a rule of thumb, it is recommended for each broker to have up to 4,000 partitions and for each cluster to have up to 200,000 partitions [<a href="https://www.confluent.io/blog/apache-kafka-supports-200k-partitions-per-cluster/">Source</a>].</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="" src=" /images/3e8a66ef-54b8-4036-be1f-e1ca72165def.png">
+    </div>
+
+    
+</figure></p>
+<p>A partition consists of <strong>offsets,</strong> the first entry is written to offset 0 then 1, 2 and it continues. All written events in a partition are immutable and ordered though we can set a retention period for events written (default: 7 days).</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="" src=" /images/f27bb2ed-ed28-4436-926a-7776c5a16f01.png">
+    </div>
+
+    
+</figure></p>
+<p>A record or an event consists of</p>
+<ul>
+<li>
+<p>Headers - these are optional metadata</p>
+</li>
+<li>
+<p>Key - if given, ensures all events with the same key end up in the same partition</p>
+</li>
+<li>
+<p>Value - relevant event data</p>
+</li>
+<li>
+<p>Timestamp - creation or ingestion time</p>
+</li>
+</ul>
+<p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="" src=" /images/1c9b4fa8-2632-4960-aecd-833cf90b08b4.png">
+    </div>
+
+    
+</figure></p>
+<p><em>Producers</em> and <em>Consumers</em> use different strategies to push and consume events from the partition.</p>
+<p><em>Let&rsquo;s take a look at some of the producer</em> <strong>partitioning strategies</strong>.</p>
+<ul>
+<li>
+<p><em>Round Robin</em>: If the message has no key it follows this, but this does not provide any ordering guarantee as the messages can be pushed to any partition.</p>
+<p>For eg: Consider a scenario where messages from different producers are being sent on the same topic simultaneously. Due to the round-robin nature of partitioning, these messages may not be stored in the order they were produced, which can lead to variations in the message sequence when consumed.</p>
+</li>
+<li>
+<p><em>Default strategy</em> with key: It chooses the partition through a hash function, <code>hash(key) % no_of_partitions</code>. This guarantees order since a message with the same key lands in the same partition.</p>
+<p>By carefully choosing message keys, we can ensure related data lands in the same partition, preserving order and simplifying processing.</p>
+</li>
+<li>
+<p><em>A</em> <em>custom partition strategy</em> can also be defined.</p>
+</li>
+</ul>
+<p><em>Consumers</em> subscribe to topics and pull messages based on the offset. It can start reading from the beginning of a partition or from a custom offset. Once read successfully the consumer commits the offset to the cluster (this is stored in an internal topic <code>__consumer_offsets</code>) indicating that the event has been read.</p>
+<p>We can associate a <strong>Group ID</strong> with every consumer. All consumers with the same Group ID belong to a <strong>Consumer Group</strong>. As shown in the diagram above we have 2 consumers A and B which belongs to a Consumer Group.</p>
+<p>For Topic A and B, Out of 3 of its partitions,<br>
+2 -&gt; assigned to consumer A.<br>
+1 -&gt; assigned to consumer B.<br>
+This can be the other way around as well i.e. 2 assigned to B and 1 to A.</p>
+<p>If there was a consumer C, the assignment would have been like,</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="" src=" /images/2a39a6cc-b7c5-42a8-a10a-0418715740e3.png">
+    </div>
+
+    
+</figure></p>
+<p>Out of 3 of its partitions,<br>
+1 -&gt; assigned to consumer A.<br>
+1 -&gt; assigned to consumer B.<br>
+1 -&gt; assigned to consumer C.</p>
+<p>Let&rsquo;s add one more, consumer D</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="" src=" /images/4c283760-3075-4ed1-96c4-3fa0e14e9124.png">
+    </div>
+
+    
+</figure></p>
+<p>Here consumer D is idle since there are no more partitions available to be assigned to it.</p>
+<p><em>Let&rsquo;s take a look at some of the consumer</em> <strong>partition assignment strategies</strong>.</p>
+<ul>
+<li>
+<p><em>Round Robin</em>: All partitions of the subscription, regardless of topic, will be spread evenly across the available consumers.</p>
+</li>
+<li>
+<p><em>Sticky Partition</em>: A variant of round-robin but it makes the best effort at sticking to the previous assignment during a rebalance (<strong>Rebalance</strong> is the process in the which assignment of partition changes if a consumer joins or leaves the group or if the number of partitions in a topic changes).</p>
+</li>
+</ul>
+<p><em>Range assignment strategy</em>: This goes through each topic in the subscription and assigns each of the partitions to a consumer, starting at the first consumer. This is useful when joining events from more than one topic the events need to be read by the same consumer.</p>
+<p>Another concept to discuss is, <strong>Topic Compaction (Log Compaction)</strong> which ensures that Kafka will always retain at least the last known value for each message key within the log of data for a single topic partition.</p>
+<p>As you can see below after compaction only the latest values for each key are retained after compaction. If the use case is such that, previous messages are not needed and the state can be restored from the latest values of the keys log compaction can be enabled and this saves us a lot of storage as well.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="" src=" /images/1bcfbeeb-872b-4ea2-ad27-ad3a495ad14f.png">
+    </div>
+
+    
+</figure></p>
+<p>Compaction gives a more granular retention mechanism so that we are guaranteed to retain at least the last update for each primary key.</p>
+<p>Finally, there are certain patterns and various use cases related to event processing/streaming in general. So Kafka has built a whole ecosystem around this which includes.</p>
+<ul>
+<li>
+<p>Kafka Connect</p>
+</li>
+<li>
+<p>Kafka Streams</p>
+</li>
+<li>
+<p>ksqlDB</p>
+</li>
+<li>
+<p>Schema Registry (Kafka does not include a schema registry, but there are third-party implementations available).</p>
+</li>
+</ul>
+<p>We will discuss more on this in further blogs.</p>
+<hr>
+<p><em>This blog was originally published on <a href="https://blog.joobisb.com/apache-kafka-a-primer">https://blog.joobisb.com/apache-kafka-a-primer</a></em></p>
+
+    
+  </div>
+
+  
+
+  
+  
+
+<div class="single-pagination">
+    <hr />
+
+    <div class="flex">
+
+        <div class="single-pagination-prev">
+            
+        </div>
+
+        <div class="single-pagination-next">
+            
+            <div class="single-pagination-container-next">
+                <div class="single-pagination-text">
+                    <a href="/blog/postgres-mvcc/">
+                        Postgres MVCC and Isolation Levels
+                    </a>
+                </div>
+                <div class="single-pagination-text">→</div>
+            </div>
+            
+        </div>
+
+    </div>
+
+    <hr />
+</div>
+
+
+
+  
+
+  
+
+  
+  <div class="back-to-top">
+    <a href="#top">
+      back to top
+    </a>
+  </div>
+  
+
+</div>
+
+
+      </main>
+    </div>
+
+    <footer>
+      <p>
+    <a>Joobi</a>
+    ©
+    <a>2024</a>
+</p>
+
+
+    </footer>
+
+  </body>
+
+  <script>
+
+  function isAuto() {
+    return document.body.classList.contains("auto");
+  }
+
+  function setTheme() {
+    if (!isAuto()) {
+      return
+    }
+
+    document.body.classList.remove("auto");
+    let cls = "light";
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      cls = "dark";
+    }
+
+    document.body.classList.add(cls);
+  }
+
+  function invertBody() {
+    document.body.classList.toggle("dark");
+    document.body.classList.toggle("light");
+  }
+
+  if (isAuto()) {
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(invertBody);
+  }
+
+  setTheme();
+
+</script>
+
+</html>

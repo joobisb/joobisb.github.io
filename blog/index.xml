@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Blogs on Joobi S B</title>
+    <link>http://localhost:1313/blog/</link>
+    <description>Recent content in Blogs on Joobi S B</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 26 Sep 2024 00:23:24 +0530</lastBuildDate>
+    <atom:link href="http://localhost:1313/blog/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Using Ephemeral OS disks with AKS</title>
+      <link>http://localhost:1313/blog/aks-ephemeral-disk/</link>
+      <pubDate>Thu, 26 Sep 2024 00:23:24 +0530</pubDate>
+      <guid>http://localhost:1313/blog/aks-ephemeral-disk/</guid>
+      <description>&lt;h3 id=&#34;background&#34;&gt;Background&lt;/h3&gt;&#xA;&lt;p&gt;We have our staging and production environments hosted on &lt;em&gt;Azure Kubernetes Service (AKS)&lt;/em&gt;. If you are not familiar with AKS, it&amp;rsquo;s the managed K8s service provided by Azure.&lt;/p&gt;&#xA;&lt;p&gt;By default, AKS uses a managed remote &lt;em&gt;Azure Storage&lt;/em&gt; for the OS disks of the nodes, whereas if you use &lt;em&gt;ephemeral OS disks&lt;/em&gt;, then they are created on the local virtual machine (VM) storage.&lt;/p&gt;&#xA;&lt;h4 id=&#34;why-use-ephemeral-os-disks&#34;&gt;Why use ephemeral OS disks?&lt;/h4&gt;&#xA;&lt;p&gt;With ephemeral OS disks, we see lower read/write latency on the disks of AKS nodes as the disks are locally attached to the VM.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Troubleshooting Google Digital Asset Links for Seamless Android App Linking</title>
+      <link>http://localhost:1313/blog/troubleshooting-app-links/</link>
+      <pubDate>Sat, 11 Nov 2023 00:23:24 +0530</pubDate>
+      <guid>http://localhost:1313/blog/troubleshooting-app-links/</guid>
+      <description>&lt;p&gt;We all want to provide a seamless experience for the users of our app. Android app links are a great way to launch users straight into the app when they click on a link.&lt;/p&gt;&#xA;&lt;p&gt;There are different types of links that you can create in an Android app.&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Deep Links&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Web Links&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;App Links&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;I&amp;rsquo;ve been working on a product for which we needed to use app links. Here I&amp;rsquo;ll discuss solving issues with setting up Android app links.&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Postgres MVCC and Isolation Levels</title>
+      <link>http://localhost:1313/blog/postgres-mvcc/</link>
+      <pubDate>Wed, 18 Oct 2023 00:23:24 +0530</pubDate>
+      <guid>http://localhost:1313/blog/postgres-mvcc/</guid>
+      <description>&lt;p&gt;Postgres uses a multiversion model for concurrency control unlike few other databases which uses locks. They call this &lt;strong&gt;MVCC(Multi Version Concurrency Control)&lt;/strong&gt;.&lt;/p&gt;&#xA;&lt;p&gt;This means that when a transaction is running, Postgres creates a snapshot of the database at the start of the transaction. This protects the transactions from viewing inconsistent data.&lt;/p&gt;&#xA;&lt;p&gt;An important point to note is that MVCC read locks doesn&amp;rsquo;t conflict with the locks acquired for writing.&#xA;i.e. &lt;strong&gt;reading never blocks writing and writing never blocks reading.&lt;/strong&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>Apache Kafka: A Primer</title>
+      <link>http://localhost:1313/blog/apache-kafka-a-primer/</link>
+      <pubDate>Mon, 18 Sep 2023 00:23:24 +0530</pubDate>
+      <guid>http://localhost:1313/blog/apache-kafka-a-primer/</guid>
+      <description>&lt;p&gt;Nowadays it&amp;rsquo;s very common to build systems focused on events where events drive the flow of data and interactions, aka &lt;em&gt;Event-driven architecture&lt;/em&gt;.&lt;/p&gt;&#xA;&lt;p&gt;Simply put, Apache Kafka is an event-streaming platform. It does the following,&lt;/p&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Single platform to publish and subscribe to events.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;Process real-time streams of events.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;li&gt;&#xA;&lt;p&gt;All events are stored.&lt;/p&gt;&#xA;&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;p&gt;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&#xA;&lt;figure class=&#34;&#34;&gt;&#xA;&#xA;    &lt;div&gt;&#xA;        &lt;img loading=&#34;lazy&#34; alt=&#34;&#34; src=&#34; /images/b17be644-da38-4e7a-b211-5f828dc7c59b.png&#34;&gt;&#xA;    &lt;/div&gt;&#xA;&#xA;    &#xA;&lt;/figure&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

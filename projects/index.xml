@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Joobi S B</title>
+    <link>http://localhost:1313/projects/</link>
+    <description>Recent content in Projects on Joobi S B</description>
+    <generator>Hugo</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 01 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <atom:link href="http://localhost:1313/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>advent of code 2024 🎄</title>
+      <link>http://localhost:1313/projects/advent-of-code/</link>
+      <pubDate>Sun, 01 Dec 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/advent-of-code/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Check out my solutions to the &lt;a href=&#34;https://adventofcode.com/2024&#34;&gt;advent of code 2024&lt;/a&gt; in here &lt;a href=&#34;https://github.com/joobisb/advent-of-code-2024&#34;&gt;joobisb/advent-of-code-2024&lt;/a&gt;.&lt;/em&gt;&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>vitadb: experimental distributed database</title>
+      <link>http://localhost:1313/projects/vitadb/</link>
+      <pubDate>Fri, 16 Aug 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/vitadb/</guid>
+      <description>&lt;h1 id=&#34;vitadb&#34;&gt;VitaDB&lt;/h1&gt;&#xA;&lt;p&gt;&lt;em&gt;Repo&lt;/em&gt;: &lt;a href=&#34;https://github.com/joobisb/vitadb&#34;&gt;joobisb/vitadb&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;VitaDB is an experimental, distributed, fault-tolerant database I&amp;rsquo;m developing to explore core concepts of distributed systems. It&amp;rsquo;s designed as both a learning tool and a potential foundation for production use.&lt;/p&gt;&#xA;&lt;h2 id=&#34;key-features&#34;&gt;Key Features&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Write-Ahead Log (WAL) for durability&lt;/li&gt;&#xA;&lt;li&gt;Fault tolerance mechanisms&lt;/li&gt;&#xA;&lt;li&gt;Simple key-value store interface&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;current-status&#34;&gt;Current Status&lt;/h2&gt;&#xA;&lt;p&gt;VitaDB is in early development, focusing on implementing fundamental distributed systems concepts. As the project progresses, I plan to add:&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>one billion row challenge</title>
+      <link>http://localhost:1313/projects/1brc/</link>
+      <pubDate>Mon, 15 Jan 2024 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/1brc/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Repo&lt;/em&gt;: &lt;a href=&#34;https://github.com/joobisb/1brc&#34;&gt;joobisb/vitadb&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;Implemented a &lt;code&gt;go&lt;/code&gt; version of the &lt;a href=&#34;https://github.com/gunnarmorling/1brc&#34;&gt;one billion row challenge&lt;/a&gt;, a performance-oriented coding task, the project focuses on efficiently processing and analyzing a large dataset of one billion rows.&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>
