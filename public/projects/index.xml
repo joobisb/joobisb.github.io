@@ -6,8 +6,15 @@
     <description>Recent content in Projects on Joobi S B</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 01 Dec 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 02 Jun 2025 00:00:00 +0000</lastBuildDate>
     <atom:link href="http://localhost:1313/projects/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>playz.one: fantasy cricket league</title>
+      <link>http://localhost:1313/projects/fantasy-cricket-league/</link>
+      <pubDate>Mon, 02 Jun 2025 00:00:00 +0000</pubDate>
+      <guid>http://localhost:1313/projects/fantasy-cricket-league/</guid>
+      <description>&lt;p&gt;&lt;em&gt;Live&lt;/em&gt;: &lt;a href=&#34;https://playz.one&#34;&gt;playz.one&lt;/a&gt;&lt;/p&gt;&#xA;&lt;p&gt;A vibe coded fantasy cricket league app. Read more about the development process and lessons learned in my &lt;a href=&#34;http://localhost:1313/blog/rapid-development-fantasy-cricket-league&#34;&gt;blog post&lt;/a&gt;.&lt;/p&gt;&#xA;&lt;h2 id=&#34;tech-stack&#34;&gt;Tech Stack&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;&lt;strong&gt;Frontend&lt;/strong&gt;: React+Tailwind (Lovable + Cursor with Claude-4 Sonnet)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Backend&lt;/strong&gt;: Supabase (Postgres, Auth, RLS)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Analytics&lt;/strong&gt;: PostHog&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Monitoring&lt;/strong&gt;: Grafana Cloud&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;Infrastructure&lt;/strong&gt;: Cloudflare (DNS, Workers, DDoS protection)&lt;/li&gt;&#xA;&lt;li&gt;&lt;strong&gt;CI/CD&lt;/strong&gt;: GitHub Actions&lt;/li&gt;&#xA;&lt;/ul&gt;&#xA;&lt;h2 id=&#34;key-features&#34;&gt;Key Features&lt;/h2&gt;&#xA;&lt;ul&gt;&#xA;&lt;li&gt;Team creation and management&lt;/li&gt;&#xA;&lt;li&gt;Real-time scoring system&lt;/li&gt;&#xA;&lt;li&gt;User authentication and authorization&lt;/li&gt;&#xA;&lt;li&gt;Analytics and monitoring dashboard&lt;/li&gt;&#xA;&lt;/ul&gt;</description>
+    </item>
     <item>
       <title>advent of code 2024 🎄</title>
       <link>http://localhost:1313/projects/advent-of-code/</link>

@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en-us"
+  dir="ltr">
+
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+<meta name="viewport" content="width=device-width">
+
+
+
+<link rel="icon" type="image/ico" href="http://localhost:1313//favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="http://localhost:1313//favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="http://localhost:1313//favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="192x192" href="http://localhost:1313//android-chrome-192x192.png">
+<link rel="apple-touch-icon" sizes="180x180" href="http://localhost:1313//apple-touch-icon.png">
+
+<meta name="description" content="A brutally honest take on building a fantasy cricket league using &#39;wipe coding&#39; - rapid, iterative development with AI assistance. What worked, what didn&#39;t, and lessons learned."/>
+
+<title>
+    
+    Vibe coded a fantasy cricket app | Joobi S B
+    
+</title>
+
+<link rel="canonical" href="http://localhost:1313/blog/rapid-development-fantasy-cricket-league/"/>
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="/assets/combined.min.8fe593bbeba89eaf355dddfc8a11f17177c8f384a3f14a1de029cf79e93527fc.css" media="all">
+
+
+
+
+
+  </head>
+
+  
+
+  
+
+  <body class="auto">
+
+    <div class="content">
+      <header>
+        
+
+<div class="header">
+
+    
+
+    <h1 class="header-title">Joobi S B</h1>
+
+    <div class="flex">
+        
+
+        
+        
+      
+        <p class="small ">
+            <a href="/" >
+                /home
+            </a>
+        </p>
+        
+      
+        <p class="small ">
+            <a href="/blog" >
+                /blog
+            </a>
+        </p>
+        
+      
+        <p class="small ">
+            <a href="/projects" >
+                /projects
+            </a>
+        </p>
+        
+      
+        <p class="small ">
+            <a href="/open-source" >
+                /open-source
+            </a>
+        </p>
+        
+      
+        <p class="small ">
+            <a href="/talks" >
+                /talks
+            </a>
+        </p>
+        
+        
+    </div>
+
+    
+
+</div>
+
+      </header>
+
+      <main class="main">
+        
+
+
+
+
+
+
+
+<div >
+
+  <div class="single-intro-container">
+
+    
+
+    <h1 class="single-title">Vibe coded a fantasy cricket app</h1>
+    
+
+    
+
+    <p class="single-readtime">
+      
+      
+      
+      <time datetime="2025-06-02T00:00:00&#43;00:00">June 2, 2025</time>
+      
+
+      
+    </p>
+
+  </div>
+
+  
+
+  
+
+  
+
+  
+
+  <div class="single-content">
+    <p>I just wrapped up vibe coding a fantasy cricket league. Here&rsquo;s my take on what worked, what didn&rsquo;t, and what I learned along the way.</p>
+<p>Please do check it out at <a href="https://playz.one">playz.one</a> ✨</p>
+<h2 id="the-project-fantasy-cricket-league">The Project: Fantasy Cricket League</h2>
+<p>We were planning our annual cricket tournament at <a href="https://keyvalue.systems">KeyValue</a>, and as part of that, we ran a fantasy cricket league. Everyone could create teams by picking their favorite colleagues similar to <a href="https://www.dream11.com/">Dream11</a>, where points are awarded based on real-time match performance.</p>
+<p>Previously, we managed everything using Google Sheets and Google Apps Script. I’d been wanting to vibe code something for a while, so this was perfect. Given the time constraints, I was curious to see how much I could pull off through vibe coding.</p>
+<h2 id="the-tech-stack">The Tech Stack</h2>
+<p>The first step was deciding what to build with. I had been wanting to try <a href="https://lovable.dev/">Lovable</a> for a while, and I wasn’t aiming to build a separate backend service. I wanted something that came with a backend out of the box, so decided to use <a href="https://supabase.com">Supabase</a>. Since Lovable has direct integration with Supabase, it made things easier.</p>
+<p>Later on, added few other things as well</p>
+<ul>
+<li>PostHog</li>
+<li>Grafana</li>
+<li>Cloudflare</li>
+<li>Github Actions</li>
+</ul>
+<p>I&rsquo;ll talk about these as we go along.</p>
+<h2 id="heres-how-it-went">Here&rsquo;s how it went</h2>
+<p>I brainstormed the idea a bit using ChatGPT and came up with a rough layout of how the pages and the initial setup should look. I then fed that prompt to Lovable.</p>
+<p>Found ChatGPT 4o better than ChatGPT 4.5 for brainstorming, though its mentioned 4.5 is better for exploring ideas 🤷‍♂️.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="" src=" /images/vibe-coding/1.png">
+    </div>
+
+    
+</figure></p>
+<p> </p>
+<p>Lovable generated an initial version pretty quickly. It gave me a solid outline of all the pages I needed, which worked really well. I also integrated Supabase with Lovable, and the integration process was super smooth.</p>
+<p>It was able to generate the initial API integrations I needed, which helped speed things up further.</p>
+<p>The initial version looked like this.</p>
+<p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="" src=" /images/vibe-coding/2.png">
+    </div>
+
+    
+</figure>
+ </p>
+<p>This was a good starting point. But ofcourse, had to go through multiple iterations to get it to the final version.</p>
+<p>After some iterations, Lovable credits ran out. I had Cursor subscription, so I started using it with <code>claude-4-sonnet</code>. To my surprise cursor with <code>claude-4-sonnet</code> in agent mode was working at par with Lovable. The only thing missing was the Supabase integration.</p>
+<p>Fortunately, Supabase&rsquo;s MCP server was available, and I integrated it with Cursor. This made Cursor feel like it was running in “superagent” mode. It sped things up a lot.</p>
+<p>Having MCP server was a game changer. The model could generate the code by verifying changes against the database, making development much faster with minimal &ldquo;please fix this&rdquo; prompts.</p>
+<p>Vibe coding felt fun that I impulse bought a domain because, why not?</p>
+<p>Since Cloudflare has a very generous free plan with DDoS protection, reverse-proxy, workers, etc. I migrated the domain from GoDaddy to Cloudflare.</p>
+<p>Next, I wanted to monitor traffic and app performance. Supabase does provide monitoring, and also offers Supabase+Grafana for more detailed insights. So, I used Grafana cloud for all my monitoring needs.</p>
+<p>I also wanted to track how users were interacting with the app, so I integrated PostHog for product analytics. A PostHog MCP server would have sped up the development, but Cursor did an okay job here too.</p>
+<p>And that’s how I ended up with <a href="https://playz.one">playz.one</a></p>
+<p>
+
+
+
+
+
+
+
+
+
+
+<figure class="">
+
+    <div>
+        <img loading="lazy" alt="" src=" /images/vibe-coding/3.png">
+    </div>
+
+    
+</figure></p>
+<h2 id="the-good">The Good</h2>
+<h3 id="claude-sonnet-4-is-a-game-changer"><em>Claude Sonnet-4 Is a Game Changer</em></h3>
+<p>Sonnet 4 really impressed me. The kind of pattern recognition and auto-fixing saved me hours of manual work. It&rsquo;s genuinely good at understanding context and applying fixes consistently. I did play around with <code>gemini-2.5-pro</code> as well, didn&rsquo;t find it as compelling as <code>claude-4-sonnet</code>. To be fair, most of my prompting was done with claude, so it better context.</p>
+<p>Also, the agent’s ability to use command-line tools and grep makes it much more powerful.</p>
+<h3 id="get-your-basics-right-first"><em>Get Your Basics Right First</em></h3>
+<p>This sounds obvious, but I can&rsquo;t stress this enough. When I focused on getting the fundamental architecture solid before going all-in, everything else fell into place much smoother.</p>
+<h3 id="supabase-when-you-understand-it"><em>Supabase (When You Understand It)</em></h3>
+<p>Supabase was powerful once I wrapped my head around it. The Row level Security(RLS) and the <code>SECURITY DEFINER</code> functions were particularly useful which solved a lot of my permission headaches. This whole process also helped me appreciate how far you can stretch Postgres.</p>
+<h2 id="the-painful">The Painful</h2>
+<h3 id="git-commit-frequently"><em>Git commit frequently</em></h3>
+<p>Cursor would sometimes hallucinate and get stuck in loops, especially when context became complex. I learned to commit frequently <em>really</em> frequently, because you never know what&rsquo;s actually been implemented versus what Cursor thinks it implemented. Once you have a working version, make sure you commit it.</p>
+<h3 id="working-code-but-not-optimized"><em>Working code, but not optimized</em></h3>
+<p>I didn’t expect perfectly optimized code, but there were multiple instances where several APIs were being called when a single one would have sufficed. So it&rsquo;s important to understand the code and flow. Once you figure out the optimal approach, it&rsquo;s better to guide the model rather than asking it to “optimize” in one go.</p>
+<h3 id="missing-features"><em>Missing features</em></h3>
+<p>Both Cursor and Lovable would benefit from a voice mode. When you&rsquo;re in the zone, typing out long explanations breaks the rhythm. I personally found it very productive to use ChatGPT’s voice mode and then paste the prompts into Cursor. That worked well for me, though of course, preferences may vary.</p>
+<h2 id="technical-gotchas-and-workarounds">Technical Gotchas and Workarounds</h2>
+<h3 id="postgres-backups"><em>Postgres Backups</em></h3>
+<p>I was using free plan of supabase, and it did not have backups. Hence wrote a Github action to take daily backups of the database, and stored it initially in GH as artifacts and later on moved it to a Cloudflare R2 bucket.</p>
+<h3 id="row-level-security-rls-in-supabase"><em>Row Level Security (RLS)</em> in Supabase</h3>
+<p>I had to work around RLS in several places, not because it&rsquo;s bad, but because when you&rsquo;re moving fast, the security model can become a bottleneck if not planned well.</p>
+<p><code>SECURITY DEFINER</code> functions help, but you need to be cautious of security path hijacking. Running with elevated privileges is powerful, but dangerous if misused.</p>
+<h3 id="domain-and-cloudflare-setup"><em>Domain and Cloudflare Setup</em></h3>
+<p>I used Cloudflare workers to reverse proxy a subdomain for PostHog analytics. Even subdomains get blanket blocked if they detect tracking/analytics, so be aware of that.</p>
+<p>A CNAME record would’ve worked, but PostHog required rewriting host headers which is only available on Cloudlare&rsquo;s enterprise plan. So, the alternative was to use Cloudflare Workers, which come with a 100k requests/day free quota, more than enough for my use case.</p>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>I think we are at a stage where we can&rsquo;t go back to a world without AI-assisted development.
+But at the same time, I think it&rsquo;s very crucial to get your fundamentals right to make the most out of AI. Those who understand this would be the ones who can leverage AI to its full potential.</p>
+<p>Would I do it again? Absolutely. But next time, I&rsquo;m starting with a better plan and keeping that git commit habit from day one 🙂.</p>
+<hr>
+<p><em>So where is our future heading? Maybe as Jensen Huang says, You won&rsquo;t lose your job to AI, you&rsquo;ll lose your job to somebody who uses AI.</em></p>
+
+    
+  </div>
+
+  
+
+  
+  
+
+<div class="single-pagination">
+    <hr />
+
+    <div class="flex">
+
+        <div class="single-pagination-prev">
+            
+            <div class="single-pagination-container-prev">
+                <div class="single-pagination-text">←</div>
+                <div class="single-pagination-text">
+                    <a href="/blog/aks-ephemeral-disk/">
+                        Using Ephemeral OS disks with AKS
+                    </a>
+                </div>
+            </div>
+            
+        </div>
+
+        <div class="single-pagination-next">
+            
+        </div>
+
+    </div>
+
+    <hr />
+</div>
+
+
+
+  
+
+  
+
+  
+  <div class="back-to-top">
+    <a href="#top">
+      back to top
+    </a>
+  </div>
+  
+
+</div>
+
+
+      </main>
+    </div>
+
+    <footer>
+      <p>
+    <a>Joobi</a>
+    ©
+    <a>2024</a>
+</p>
+
+
+    </footer>
+
+  </body>
+
+  <script>
+
+  function isAuto() {
+    return document.body.classList.contains("auto");
+  }
+
+  function setTheme() {
+    if (!isAuto()) {
+      return
+    }
+
+    document.body.classList.remove("auto");
+    let cls = "light";
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
+      cls = "dark";
+    }
+
+    document.body.classList.add(cls);
+  }
+
+  function invertBody() {
+    document.body.classList.toggle("dark");
+    document.body.classList.toggle("light");
+  }
+
+  if (isAuto()) {
+    window.matchMedia('(prefers-color-scheme: dark)').addListener(invertBody);
+  }
+
+  setTheme();
+
+</script>
+
+</html>
