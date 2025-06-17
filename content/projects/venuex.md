@@ -1,5 +1,5 @@
 ---
-title: "VenueX"
+title: "venuex: gen ai venue finder"
 date: 2025-06-17
 ---
 

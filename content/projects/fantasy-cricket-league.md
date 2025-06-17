@@ -1,5 +1,5 @@
 ---
-title: "playz.one: fantasy cricket league"
+title: "playz.one: a vibe-coded experiment"
 date: 2025-06-02
 ---
 
