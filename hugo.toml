@@ -7,7 +7,7 @@ theme = "typo"
 homeIntroTitle = 'hello!'
 
 homeIntroContent = """
- I am a Staff Engineer at *Netskope*, working on Netskope Private Access, a Zero Trust Network Access (ZTNA) product. I have over 8 years of experience in building scalable and distributed backend systems, and I lead and mentor engineering teams in a cross-functional environment.
+ I am a Staff Engineer at *Netskope*, working on Netskope Private Access, a Zero Trust Network Access (ZTNA) product. I have over 10 years of experience in building scalable and distributed backend systems, and I lead and mentor engineering teams in a cross-functional environment.
 
  On the side, I build products like [obiapp.in](https://obiapp.in), and I am building [llmdex.dev](https://llmdex.dev), a home for everything LLM. It started with comparing model inference prices across providers, and I plan to grow it from there.
  
