@@ -16,7 +16,7 @@ homeIntroContent = """
  I began my career at *Huawei*. Following this, I ventured into the startup ecosystem with [*KeyValue Software Systems*](https://keyvalue.systems). 
  I have had the privilege of working across a multitude of domains, collaborating with numerous startups and scale-ups around the globe, including [*Bureau*](https://bureau.id), [*DurianPay*](https://durianpay.id), [*Withjoy*](https://withjoy.com) and [*Cofee.life*](https://cofee.life).
 
- These days, I mostly write in *Go*. Being a polyglot, I have previously worked with *NodeJS (TypeScript)*, *Scala*, and *Java*. 
+ These days, my agents (*claude-code*, *pi*) and I mostly write in *Go*. Being a polyglot, I have previously worked with *NodeJS (TypeScript)*, *Scala*, and *Java*. 
  My expertise also includes working with *Kafka*, *AWS*, *Azure*, *Kubernetes*, *Docker*, *Terraform* and more.
 
 """
